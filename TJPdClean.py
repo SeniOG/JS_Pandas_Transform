@@ -141,3 +141,16 @@ print(dirty_df)
 
 print('\n')
 print(clean_df)
+
+today_date = datetime.today().strftime('%d-%m-%Y')
+
+# Create the directory if it does not exist
+os.makedirs('cleanData', exist_ok=True)
+
+# Define the file path with today's date
+file_path = f'cleanData/clean_data-{today_date}.csv'
+
+# Save the DataFrame to the specified file path
+clean_df.to_csv(file_path, index=False)
+
+print(f'DataFrame saved to {file_path}')
